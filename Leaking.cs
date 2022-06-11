@@ -29,7 +29,7 @@ public class Leaking {
 		ReturnIntPtrFunc returnIntPtrFunc = ReturnIntPtrFuncImpl;
 		ReturnIntFunc returnIntFunc = ReturnIntFuncImpl;
 
-		// These will leak (except testInt):
+		// These will leak (except testInt and testStruct):
 		if (testType.HasFlag(Flags.TestType.ReturnIntFunc    )) { Console.Error.WriteLine($"testInt");     for (int i = 0; i < loopCount; i++) testInt(returnIntFunc);             Console.Error.WriteLine("DONE"); Console.ReadKey(); Console.Error.WriteLine(); }
 		if (testType.HasFlag(Flags.TestType.ReturnIntPtrFunc )) { Console.Error.WriteLine($"testIntPtr");  for (int i = 0; i < loopCount; i++) testIntPtr(returnIntPtrFunc);       Console.Error.WriteLine("DONE"); Console.ReadKey(); Console.Error.WriteLine(); }
 		if (testType.HasFlag(Flags.TestType.ReturnCharPtrFunc)) { Console.Error.WriteLine($"testCharPtr"); for (int i = 0; i < loopCount; i++) testCharPtrReal(returnCharPtrFunc); Console.Error.WriteLine("DONE"); Console.ReadKey(); Console.Error.WriteLine(); }
