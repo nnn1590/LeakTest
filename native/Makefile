@@ -1,7 +1,10 @@
 CC := gcc
 
-libleaktest.so: libleaktest.c
-	$(CC) -shared -fPIC -o $@ $^
+.PHONY: all
+all: libleaktest.so
+
+libleaktest.so: libleaktest.c libleaktest.h Makefile
+	$(CC) -Wall -Wextra -shared -fPIC -o $@ libleaktest.c
 
 .PHONY: clean
 clean:
